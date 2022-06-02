@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-final items = List<String>.generate(10000,(i) => "Item $i");
+
 
 class SearchResult extends StatelessWidget{
 
-  const SearchResult({Key? key, required this.items}) : super(key: key);
-  final List<String> items;
+  SearchResult({Key? key}) : super(key: key);
+  final items = List<String>.generate(10000,(i) => "Device $i");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,13 +13,15 @@ class SearchResult extends StatelessWidget{
         centerTitle: true,
         title: const Text('Device Search Result'),
       ),
-      body: ListView.builder(
-        itemCount : items.length,
-        itemBuilder: (context, index){
-          return ListTile(
-            title: Text(items[index]),
-          );
-        }
+      body: Container(
+        child: ListView.builder(
+          itemCount : items.length,
+          itemBuilder: (context, index){
+            return ListTile(
+              title: Text(items[index]),
+            );
+          }
+        ),
       ),
     );
   }
