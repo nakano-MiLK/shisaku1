@@ -27,38 +27,41 @@ class Home extends StatelessWidget{
     return MaterialApp(
       title: 'Ad hoc communication between mobile devices during disasters',
       theme: ThemeData(primarySwatch: Colors.cyan),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-              'Ad hoc communication between mobile devices during disasters'),
-        ),
-        body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 400,
-                  height: 60,
+      home: HomeButton(),
+    );
+  }
+}
 
-                  child: OutlinedButton(
-                    child: const Text(
-                      'Search Device',
-                      style: TextStyle(fontSize: 50),
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      primary: Colors.cyan,
-                    ),
-                    onPressed: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SearchResult()),
-                      );
-                    }
-                  ),
+class HomeButton extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context){
+    final _screenSize = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+            'Ad hoc communication between mobile devices during disasters'),
+      ),
+      body: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: _screenSize.width * 0.6,
+                height: _screenSize.height * 0.5,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.search),
+                  label: const Text('Device Search'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SearchResult()),
+                    );
+                  },
                 ),
-              ]
-          ),
+              ),
+            ]
         ),
       ),
     );
