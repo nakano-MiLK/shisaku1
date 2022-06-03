@@ -27,12 +27,14 @@ class Home extends StatelessWidget{
     return MaterialApp(
       title: 'Ad hoc communication between mobile devices during disasters',
       theme: ThemeData(primarySwatch: Colors.cyan),
-      home: HomeButton(),
+      home: const HomeButton(),
     );
   }
 }
 
 class HomeButton extends StatelessWidget{
+  const HomeButton({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context){
@@ -44,21 +46,71 @@ class HomeButton extends StatelessWidget{
             'Ad hoc communication between mobile devices during disasters'),
       ),
       body: Center(
-        child: Column(
+        child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: _screenSize.width * 0.6,
-                height: _screenSize.height * 0.5,
-                child: OutlinedButton.icon(
-                  icon: const Icon(Icons.search),
-                  label: const Text('Device Search'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SearchResult()),
-                    );
-                  },
+            children: [
+              SizedBox(          //device search
+                width: _screenSize.width * 0.17,
+                height: _screenSize.height * 0.2,
+                child: Column(
+                  children: [
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.search),
+                      label: const Text(''),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SearchResult()),
+                        );
+                      },
+                    ),
+                    const Text('Device\nSearch'),
+                  ],
+                ),
+              ),
+              SizedBox(          //new file
+                width: _screenSize.width * 0.17,
+                height: _screenSize.height * 0.2,
+                child: Column(
+                  children: [
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.upload_file),
+                      label: const Text(''),
+                      onPressed: () {},
+                    ),
+                    const Text('New File'),
+                  ],
+                ),
+              ),
+              SizedBox(          //edit
+                width: _screenSize.width * 0.17,
+                height: _screenSize.height * 0.2,
+                child: Column(
+                  children: [
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.edit_note),
+                      label: const Text(''),
+                      onPressed: () {},
+                    ),
+                    const Text('Edit'),
+                  ],
+                ),
+              ),
+              SizedBox(          //history
+                width: _screenSize.width * 0.17,
+                height: _screenSize.height * 0.2,
+                child: Column(
+                  children: [
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.history),
+                      label: const Text(''),
+                      onPressed: () {},
+                    ),
+                    const Text(
+                      'Transmission\nHistory',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
             ]
