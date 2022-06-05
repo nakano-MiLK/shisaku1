@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shisaku1/help.dart';
 import 'package:shisaku1/search_result.dart';
+import 'package:shisaku1/new_file.dart';
+import 'package:shisaku1/file_list.dart';
+import 'package:shisaku1/history.dart';
 
 void main() => runApp( MyApp());
 
@@ -45,6 +49,7 @@ class HomeButton extends StatelessWidget{
         child: AppBar(
           centerTitle: true,
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:  [
               Flexible(
                 child: Column(
@@ -74,7 +79,12 @@ class HomeButton extends StatelessWidget{
                   'Help',
                   style: TextStyle(color: Colors.black),
                 ),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Help()),
+                  );
+                },
               ),
             ],
           ),
@@ -116,7 +126,12 @@ class HomeButton extends StatelessWidget{
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.upload_file),
                         label: const Text(''),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const NewFile()),
+                          );
+                        },
                       ),
                     ),
                     const Text('New File'),
@@ -133,7 +148,12 @@ class HomeButton extends StatelessWidget{
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.edit_note),
                         label: const Text(''),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const FileList()),
+                          );
+                        },
                       ),
                     ),
                     const Text('Edit'),
@@ -150,7 +170,12 @@ class HomeButton extends StatelessWidget{
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.history),
                         label: const Text(''),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const History())
+                          );
+                        },
                       ),
                     ),
                     const Text(
