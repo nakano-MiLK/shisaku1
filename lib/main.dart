@@ -47,9 +47,10 @@ class HomeButton extends StatelessWidget{
           title: Row(
             children:  [
               Flexible(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:  [
+                    Container(),
                     Container(
                       padding: const EdgeInsets.all(3.0),
                       child: const Text(
@@ -59,6 +60,7 @@ class HomeButton extends StatelessWidget{
                         overflow: TextOverflow.clip,
                       ),
                     ),
+                    const Icon(Icons.help_outline),
                   ],
                 )
               )
