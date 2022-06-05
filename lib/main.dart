@@ -41,29 +41,41 @@ class HomeButton extends StatelessWidget{
     final _screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           centerTitle: true,
           title: Row(
             children:  [
               Flexible(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children:  [
-                    Container(),
                     Container(
-                      padding: const EdgeInsets.all(3.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: const Text(
                         "Ad hoc communication between mobile devices during disasters",
                         softWrap: true,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                         overflow: TextOverflow.clip,
                       ),
                     ),
-                    const Icon(Icons.help_outline),
                   ],
                 )
-              )
+              ),
+              OutlinedButton.icon(
+                icon: const Icon(
+                  Icons.help_outline,
+                  color: Colors.black,
+                ),
+                label: const Text(
+                  'Help',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onPressed: (){},
+              ),
             ],
           ),
         ),
