@@ -30,11 +30,15 @@ class Home extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ad hoc communication between mobile devices during disasters',
-      theme: ThemeData(primarySwatch: Colors.cyan),
+      theme: ThemeData(
+        primarySwatch: Colors.cyan,
+      ),
       home: const HomeButton(),
     );
   }
 }
+
+
 
 class HomeButton extends StatelessWidget{
   const HomeButton({Key? key}) : super(key: key);
@@ -126,11 +130,25 @@ class HomeButton extends StatelessWidget{
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.upload_file),
                         label: const Text(''),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const NewFile()),
+                        onPressed: () async {
+                          final result = await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const NewFile();
+                              },
+                            ),
                           );
+                          if (result != null){
+                            const contentText = 'New File Add to "Edit"';
+                            showDialog(
+                              context: context, 
+                              builder: (context){
+                                return const AlertDialog(
+                                  content: Text(contentText),
+                                );
+                              }
+                            );
+                          }
                         },
                       ),
                     ),

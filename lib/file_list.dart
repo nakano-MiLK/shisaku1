@@ -12,8 +12,34 @@ class FileList extends StatelessWidget{
         centerTitle: true,
         title: const Text('File List'),
       ),
-      body: Container(
-        color: Colors.black12,
+      body: const FileListPage(),
+    );
+  }
+}
+
+class FileListPage extends StatefulWidget{
+  const FileListPage({Key? key}) : super(key: key);
+
+  @override
+  _FileListPageState createState() => _FileListPageState();
+}
+
+class _FileListPageState extends State<FileListPage>{
+  List<String> fileList = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // データを元にListViewを作成
+      body: ListView.builder(
+        itemCount: fileList.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(fileList[index]),
+            ),
+          );
+        },
       ),
     );
   }
