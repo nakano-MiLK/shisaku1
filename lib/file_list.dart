@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shisaku1/new_file.dart';
 
 
 class FileList extends StatelessWidget{
@@ -12,20 +13,21 @@ class FileList extends StatelessWidget{
         centerTitle: true,
         title: const Text('File List'),
       ),
-      body: const FileListPage(),
+      body: FileListPage(),
     );
   }
 }
 
 class FileListPage extends StatefulWidget{
-  const FileListPage({Key? key}) : super(key: key);
+  FileListPage(this.text);
+  const FileListPage(String text, {Key? key}) : super(key: key);
 
   @override
   _FileListPageState createState() => _FileListPageState();
 }
 
 class _FileListPageState extends State<FileListPage>{
-  List<String> fileList = [];
+  List<String> fileList = [text];
 
   @override
   Widget build(BuildContext context) {

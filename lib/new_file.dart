@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shisaku1/file_list.dart';
 
 
 class NewFile extends StatefulWidget {
@@ -14,7 +15,6 @@ class _NewFileState extends State<NewFile> {
 
   late final String inputValue;
   // データを宣言
-  int count = 80;
   final String _text = '';
   String value2 = '' ;
   // データを元にWidgetを作る
@@ -56,9 +56,17 @@ class _NewFileState extends State<NewFile> {
                 onPressed: () {
                   // "pop"で前の画面に戻る
                   // "pop"の引数から前の画面にデータを渡す
-                  Navigator.of(context).pop(_text);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      //settings: RouteSettings(name: _text),
+                      builder: (BuildContext context) => FileListPage(_text)),
+                  );
                 },
-                child: const Text('リスト追加', style: TextStyle(color: Colors.white)),
+                child: const Text(
+                  'リスト追加',
+                  style: TextStyle(color: Colors.white)
+                ),
               ),
             ),
             const SizedBox(height: 8),
