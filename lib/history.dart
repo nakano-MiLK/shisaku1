@@ -10,7 +10,7 @@ class History extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Transmission History'),
+        title: const Text('Transmission History!!!!'),
       ),
       body: Container(
         color: Colors.deepPurpleAccent,
